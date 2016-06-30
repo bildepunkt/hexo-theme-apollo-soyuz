@@ -4,12 +4,16 @@ body {
     background-color: #000;
 }
 
+.header {
+    margin: 0;
+}
+
 .universe {
     font-family: sans-serif;
     margin: 0;
     min-height: 100%;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 
@@ -19,6 +23,6 @@ body {
     top: 0;
 }
 
-.main, .mb-search, footer {
+.container {
     position: relative;
 }
