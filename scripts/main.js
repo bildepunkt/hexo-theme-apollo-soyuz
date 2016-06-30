@@ -42,6 +42,7 @@ class Main {
         var viewportHeight = window.innerHeight;
 
         universe.style.height = `${viewportHeight}px`;
+        //
     }
 
     update() {

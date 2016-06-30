@@ -113,6 +113,7 @@
 	            var viewportHeight = window.innerHeight;
 	
 	            universe.style.height = viewportHeight + 'px';
+	            //
 	        }
 	    }, {
 	        key: 'update',
