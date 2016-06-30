@@ -76,6 +76,8 @@
 	
 	        _Ticker2.default.start();
 	
+	        this.styleHeader();
+	
 	        this.canvas1 = new _Canvas2.default({ id: 'galaxy1' });
 	        this.canvas2 = new _Canvas2.default({ id: 'galaxy2' });
 	        this.canvasEl1 = this.canvas1.getEl();
@@ -105,6 +107,18 @@
 	    }
 	
 	    _createClass(Main, [{
+	        key: 'styleHeader',
+	        value: function styleHeader() {
+	            var universe = document.getElementById("universe");
+	            var main = document.getElementById("main");
+	            var viewportHeight = window.innerHeight;
+	
+	            universe.style.height = viewportHeight + 'px';
+	
+	            main.style.position = "relative";
+	            main.style.top = viewportHeight + 'px';
+	        }
+	    }, {
 	        key: 'update',
 	        value: function update() {
 	            this.attractor1.update(this.mouseX, this.mouseY);

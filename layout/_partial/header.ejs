@@ -1,36 +1,36 @@
 <div class="mobile-nav-panel">
-	<i class="icon-reorder icon-large"></i>
+    <i class="icon-reorder icon-large"></i>
 </div>
 <header id="header">
-	<div class="universe">
+    <div id="universe" class="universe">
         <canvas id="galaxy1" class="galaxy"></canvas>
         <canvas id="galaxy2" class="galaxy"></canvas>
-    </div>
 
-    <div id="logo" class="logo">
-        <svg version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="200" height="260"
-             viewBox="0 0 200 260" overflow="visible" enable-background="new 0 0 200 260" xml:space="preserve">
-            <g id="logoGroup">
-                <polygon class="logo-piece logo-piece-nw" fill="#4F595B" points="80,40 0,80 0,120 80,80"/>
-                <polygon class="logo-piece logo-piece-sw" fill="#8A989F" points="100,130 0,80 0,120 100,169"/>
-                <polygon class="logo-piece logo-piece-se" fill="#4F595B" points="100,110 200,60 200,100 100,149"/>
-                <rect x="80" y="31" fill="#8A989F" width="39" height="228"/>
-                <polygon class="logo-piece logo-piece-ne" fill="#8A989F" points="80,0 199,60 199,100 80,40"/>
-            </g>
-        </svg>
-    </div>
+        <div id="logo" class="logo">
+            <svg version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="200" height="260"
+                 viewBox="0 0 200 260" overflow="visible" enable-background="new 0 0 200 260" xml:space="preserve">
+                <g id="logoGroup">
+                    <polygon class="logo-piece logo-piece-nw" fill="#4F595B" points="80,40 0,80 0,120 80,80"/>
+                    <polygon class="logo-piece logo-piece-sw" fill="#8A989F" points="100,130 0,80 0,120 100,169"/>
+                    <polygon class="logo-piece logo-piece-se" fill="#4F595B" points="100,110 200,60 200,100 100,149"/>
+                    <rect x="80" y="31" fill="#8A989F" width="39" height="228"/>
+                    <polygon class="logo-piece logo-piece-ne" fill="#8A989F" points="80,0 199,60 199,100 80,40"/>
+                </g>
+            </svg>
+        </div>
 
-	<h1 class="blog-title">
-		<a href="<%- config.root %>"><%= config.title %></a>
-	</h1>
-	<nav class="nav">
-		<ul>
-			<% for (var i in theme.menu){ %><li><a href="<%- theme.menu[i] %>"><%= i %></a></li><% } %>
-			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
-			<% if (theme.rss){ %><li><a href="<%- theme.rss %>" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li><% } %>
-		</ul>
-	</nav>
-	<div id="search-form-wrap">
-		<%- search_form({button: '&#xF002;'}) %>
-	</div>
+        <h1 class="blog-title">
+            <a href="<%- config.root %>"><%= config.title %></a>
+        </h1>
+        <nav class="nav">
+            <ul>
+                <% for (var i in theme.menu){ %><li><a href="<%- theme.menu[i] %>"><%= i %></a></li><% } %>
+                <li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+                <% if (theme.rss){ %><li><a href="<%- theme.rss %>" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li><% } %>
+            </ul>
+        </nav>
+        <div id="search-form-wrap">
+            <%- search_form({button: '&#xF002;'}) %>
+        </div>
+    </div>
 </header>

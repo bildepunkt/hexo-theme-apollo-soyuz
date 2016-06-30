@@ -7,6 +7,8 @@ class Main {
     constructor() {
         Ticker.start();
 
+        this.styleHeader();
+
         this.canvas1 = new Canvas({ id: 'galaxy1' });
         this.canvas2 = new Canvas({ id: 'galaxy2' });
         this.canvasEl1 = this.canvas1.getEl();
@@ -33,6 +35,17 @@ class Main {
         }, false);
 
         document.addEventListener('ontick', this.update.bind(this));
+    }
+
+    styleHeader () {
+        var universe = document.getElementById("universe");
+        var main = document.getElementById("main");
+        var viewportHeight = window.innerHeight;
+
+        universe.style.height = `${viewportHeight}px`;
+
+        main.style.position = "relative";
+        main.style.top = `${viewportHeight}px`;
     }
 
     update() {
