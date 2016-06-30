@@ -39,13 +39,9 @@ class Main {
 
     styleHeader () {
         var universe = document.getElementById("universe");
-        var main = document.getElementById("main");
         var viewportHeight = window.innerHeight;
 
         universe.style.height = `${viewportHeight}px`;
-
-        main.style.position = "relative";
-        main.style.top = `${viewportHeight}px`;
     }
 
     update() {
