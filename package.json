@@ -5,7 +5,7 @@
   "repository": "https://github.com/c-concat-p/c-concat-p.github.io.git",
   "main": "index.html",
   "scripts": {
-    "watch:styles": "./node_modules/.bin/node-sass -w ./styles/sass -o ./sources/styles",
+    "watch:styles": "./node_modules/.bin/node-sass -w ./styles -o ./source/styles",
     "watch:scripts": "./node_modules/.bin/webpack --watch --config webpack.config.js"
   },
   "author": "c-concat-p",
