@@ -1,14 +1,13 @@
 {
-  "name": "portfolio-site",
+  "name": "hexo-theme-apollo-soyuz",
   "version": "0.1.0",
   "description": "The protfolio and blog site of Chris Peters",
-  "repository": "https://github.com/c-concat-p/c-concat-p.github.io.git",
-  "main": "index.html",
+  "repository": "https://github.com/c-concat-p/hexo-theme-apollo-soyuz.git",
   "scripts": {
     "watch:styles": "./node_modules/.bin/node-sass -w ./styles -o ./source/styles",
     "watch:scripts": "./node_modules/.bin/webpack --watch --config webpack.config.js"
   },
-  "author": "c-concat-p",
+  "author": "Chris Peters",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {

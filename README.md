@@ -1,31 +1,27 @@
-Hexo theme: Apollo
-=================
+Hexo theme: Apollo-Soyuz
+========================
 
-**This hexo theme is modified from SANOGRAPHIX.NET**
+This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
 
-[Original](https://github.com/sanographix/tumblr/tree/master/apollo) (Tumblr theme)  
-[Demo](http://joyceim.github.io/hexo-theme-apollo)
+[Demo](/#coming-soon!)
 
-
-##Installation
-
-###Install
+### Install
 
 Run this command from inside your hexo project
 ``` bash
-$ git clone https://github.com/joyceim/hexo-theme-apollo.git themes/apollo
+$ git clone https://github.com/c-concat-p/hexo-theme-apollo-soyuz.git themes/apollo-soyuz
 ```
 
 **Apollo requires Hexo 2.4 and above.**
 
-###Update
+### Update
 
 ``` bash
-cd themes/apollo
+cd themes/apollo-soyuz
 git pull
 ```
 
-##Configuration
+## Configuration
 
 ``` yml
 # Header
@@ -46,6 +42,6 @@ favicon: /favicon.png
 - **menu** - Navigation menu
 - **rss** - RSS link
 - **excerpt_link** - "Read More" link at the bottom of excerpted articles. `false` to hide the link.
-- **fancybox** - Enable [Fancybox](http://fancyapps.com/fancybox/)
 - **google_analytics** - Google Analytics ID
 - **favicon** - Favicon path
+- **Disqus** - Disqus path
