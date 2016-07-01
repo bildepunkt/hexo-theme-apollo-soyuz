@@ -1,8 +1,17 @@
+#static_background
+  position: fixed
+  width: 100%
+  height: 100%
+  background-image: url('//lorempixel.com/image_output/abstract-q-g-640-480-7.jpg')
+  background-size: cover
+  opacity: 0.4
+
 #header
   display: block
-  margin: 4em 0
+  margin: 0
   position: relative
   *zoom: 1
+  text-align: center;
   &:after
     display: block
     visibility: hidden
@@ -20,6 +29,9 @@
   letter-spacing: .2em
   margin: 10px 0
   border-bottom: 5px solid color-title
+  position: absolute;
+  top: 46%;
+  margin-left: -92px;
   &:hover
     border-color: color-link
     a
@@ -36,8 +48,8 @@
     cursor: pointer
     display: inline-block
     width: 18px
-    height: 17px
-    background: url('/images/icon-reorder@2x.png') no-repeat 0 0
+    height: 18px
+    color: color-link
     background-size: 18px 17px
 
 .nav

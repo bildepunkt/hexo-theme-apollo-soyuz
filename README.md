@@ -6,7 +6,6 @@ This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
 [Demo](/#coming-soon!)
 
 ### Install
-
 Run this command from inside your hexo project
 ``` bash
 $ git clone https://github.com/c-concat-p/hexo-theme-apollo-soyuz.git themes/apollo-soyuz
@@ -15,14 +14,12 @@ $ git clone https://github.com/c-concat-p/hexo-theme-apollo-soyuz.git themes/apo
 **Apollo requires Hexo 2.4 and above.**
 
 ### Update
-
 ``` bash
 cd themes/apollo-soyuz
 git pull
 ```
 
 ## Configuration
-
 ``` yml
 # Header
 menu:
@@ -32,7 +29,6 @@ rss: /atom.xml
 
 # Content
 excerpt_link: Read More
-fancybox: true
 
 # Miscellaneous
 google_analytics:
