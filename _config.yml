@@ -8,6 +8,5 @@ rss: /atom.xml
 excerpt_link: Read More
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-80200669-1
 favicon: /favicon.png
-disqus_shortname: c-concat-p
