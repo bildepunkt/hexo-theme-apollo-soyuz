@@ -275,17 +275,17 @@
 	        this.canvas3 = new _Canvas2.default("galaxy3");
 	        this.canvasEl1 = this.canvas1.getEl();
 	        this.canvasEl2 = this.canvas2.getEl();
-	        this.canvasEl3 = this.canvas2.getEl();
+	        this.canvasEl3 = this.canvas3.getEl();
 	
 	        this.attractor1 = new _Attractor2.default({
-	            magnitude: -0.08,
+	            magnitude: -0.012,
 	            drag: 12
 	        });
 	        this.attractor2 = new _Attractor2.default({
-	            magnitude: -0.04,
+	            magnitude: -0.06,
 	            drag: 12
 	        });
-	        this.attractor2 = new _Attractor2.default({
+	        this.attractor3 = new _Attractor2.default({
 	            magnitude: -0.02,
 	            drag: 12
 	        });
@@ -295,11 +295,11 @@
 	
 	        new _Starfield2.default({
 	            canvas: this.canvas1,
-	            count: Math.round(window.innerWidth / 16)
+	            count: Math.round(window.innerWidth / 32)
 	        });
 	        new _Starfield2.default({
 	            canvas: this.canvas2,
-	            count: Math.round(window.innerWidth / 8)
+	            count: Math.round(window.innerWidth / 16)
 	        });
 	        new _Starfield2.default({
 	            canvas: this.canvas3,

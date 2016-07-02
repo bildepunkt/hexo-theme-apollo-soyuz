@@ -13,17 +13,17 @@ export default class Galaxy {
         this.canvas3 = new Canvas("galaxy3");
         this.canvasEl1 = this.canvas1.getEl();
         this.canvasEl2 = this.canvas2.getEl();
-        this.canvasEl3 = this.canvas2.getEl();
+        this.canvasEl3 = this.canvas3.getEl();
 
         this.attractor1 = new Attractor({
-            magnitude: -0.08,
+            magnitude: -0.012,
             drag: 12
         });
         this.attractor2 = new Attractor({
-            magnitude: -0.04,
+            magnitude: -0.06,
             drag: 12
         });
-        this.attractor2 = new Attractor({
+        this.attractor3 = new Attractor({
             magnitude: -0.02,
             drag: 12
         });
@@ -33,11 +33,11 @@ export default class Galaxy {
 
         new Starfield({
             canvas: this.canvas1,
-            count: Math.round(window.innerWidth / 16)
+            count: Math.round(window.innerWidth / 32)
         });
         new Starfield({
             canvas: this.canvas2,
-            count: Math.round(window.innerWidth / 8)
+            count: Math.round(window.innerWidth / 16)
         });
         new Starfield({
             canvas: this.canvas3,
