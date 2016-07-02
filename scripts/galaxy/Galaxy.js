@@ -27,11 +27,11 @@ export default class Galaxy {
 
         new Starfield({
             canvas: this.canvas1,
-            count: Math.round(window.innerWidth / 16)
+            count: Math.round(window.innerWidth / 8)
         });
         new Starfield({
             canvas: this.canvas2,
-            count: Math.round(window.innerWidth / 16)
+            count: Math.round(window.innerWidth / 8)
         });
 
         window.addEventListener("mousemove", (e) => {

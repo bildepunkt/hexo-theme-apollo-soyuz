@@ -37,6 +37,7 @@ export default class Starfield {
             this.stars.push(new Star({
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight,
+                randRGBMin: 212,
                 canvas: this.options.canvas,
                 radius: Math.round(Math.random() * 4),
                 opacity: 0.5 + Math.round((Math.random() - 0.5) * 100) / 100

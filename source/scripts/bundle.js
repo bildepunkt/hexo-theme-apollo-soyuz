@@ -247,11 +247,11 @@
 	
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 	
-	var _Starfield = __webpack_require__(7);
+	var _Starfield = __webpack_require__(6);
 	
 	var _Starfield2 = _interopRequireDefault(_Starfield);
 	
-	var _Attractor = __webpack_require__(6);
+	var _Attractor = __webpack_require__(8);
 	
 	var _Attractor2 = _interopRequireDefault(_Attractor);
 	
@@ -289,11 +289,11 @@
 	
 	        new _Starfield2.default({
 	            canvas: this.canvas1,
-	            count: Math.round(window.innerWidth / 16)
+	            count: Math.round(window.innerWidth / 8)
 	        });
 	        new _Starfield2.default({
 	            canvas: this.canvas2,
-	            count: Math.round(window.innerWidth / 16)
+	            count: Math.round(window.innerWidth / 8)
 	        });
 	
 	        window.addEventListener("mousemove", function (e) {
@@ -383,69 +383,6 @@
 
 /***/ },
 /* 6 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	/**
-	 * @copyright 2016 Chris Peters
-	 * @license ISC
-	 */
-	
-	var Attractor = function () {
-	    function Attractor(options) {
-	        _classCallCheck(this, Attractor);
-	
-	        this.options = {
-	            startX: 0,
-	            startY: 0,
-	            drag: 4,
-	            magnitude: 1,
-	            threshold: 0.2
-	        };
-	
-	        this.options = Object.assign(this.options, options || {});
-	
-	        this.target = {
-	            x: this.options.startX,
-	            y: this.options.startY
-	        };
-	    }
-	
-	    _createClass(Attractor, [{
-	        key: "update",
-	        value: function update(x, y) {
-	            x = x || 0;
-	            y = y || 0;
-	
-	            var dx = x * this.options.magnitude - this.target.x;
-	            var dy = y * this.options.magnitude - this.target.y;
-	
-	            this.target.x += Math.abs(dx) < this.options.threshold ? dx : dx / this.options.drag;
-	            this.target.y += Math.abs(dy) < this.options.threshold ? dy : dy / this.options.drag;
-	        }
-	    }, {
-	        key: "getTarget",
-	        value: function getTarget() {
-	            return this.target;
-	        }
-	    }]);
-	
-	    return Attractor;
-	}();
-	
-	exports.default = Attractor;
-
-/***/ },
-/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -456,7 +393,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _Star = __webpack_require__(8);
+	var _Star = __webpack_require__(7);
 	
 	var _Star2 = _interopRequireDefault(_Star);
 	
@@ -508,6 +445,7 @@
 	                this.stars.push(new _Star2.default({
 	                    x: Math.random() * window.innerWidth,
 	                    y: Math.random() * window.innerHeight,
+	                    randRGBMin: 212,
 	                    canvas: this.options.canvas,
 	                    radius: Math.round(Math.random() * 4),
 	                    opacity: 0.5 + Math.round((Math.random() - 0.5) * 100) / 100
@@ -558,7 +496,7 @@
 	exports.default = Starfield;
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -639,6 +577,69 @@
 	}();
 	
 	exports.default = Star;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/**
+	 * @copyright 2016 Chris Peters
+	 * @license ISC
+	 */
+	
+	var Attractor = function () {
+	    function Attractor(options) {
+	        _classCallCheck(this, Attractor);
+	
+	        this.options = {
+	            startX: 0,
+	            startY: 0,
+	            drag: 4,
+	            magnitude: 1,
+	            threshold: 0.2
+	        };
+	
+	        this.options = Object.assign(this.options, options || {});
+	
+	        this.target = {
+	            x: this.options.startX,
+	            y: this.options.startY
+	        };
+	    }
+	
+	    _createClass(Attractor, [{
+	        key: "update",
+	        value: function update(x, y) {
+	            x = x || 0;
+	            y = y || 0;
+	
+	            var dx = x * this.options.magnitude - this.target.x;
+	            var dy = y * this.options.magnitude - this.target.y;
+	
+	            this.target.x += Math.abs(dx) < this.options.threshold ? dx : dx / this.options.drag;
+	            this.target.y += Math.abs(dy) < this.options.threshold ? dy : dy / this.options.drag;
+	        }
+	    }, {
+	        key: "getTarget",
+	        value: function getTarget() {
+	            return this.target;
+	        }
+	    }]);
+	
+	    return Attractor;
+	}();
+	
+	exports.default = Attractor;
 
 /***/ }
 /******/ ]);

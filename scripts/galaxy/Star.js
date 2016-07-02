@@ -55,8 +55,7 @@ export default class Star {
      */
     getRandRGB() {
         return Math.min(
-            Math.round(Math.random() * 255) + this.randRGBMin,
-            255
+            Math.round(Math.random() * 255) + this.randRGBMin, 255
         );
     }
 }

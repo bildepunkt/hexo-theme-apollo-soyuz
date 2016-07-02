@@ -10,4 +10,4 @@ excerpt_link: Read More
 # Miscellaneous
 google_analytics:
 favicon: /favicon.png
-disqus:
+disqus_shortname: c-concat-p
