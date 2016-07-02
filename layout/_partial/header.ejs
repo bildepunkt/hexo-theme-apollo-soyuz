@@ -4,9 +4,18 @@
     <canvas id="galaxy3" class="galaxy"></canvas>
 </section>
 <header id="header">
-    <h1 class="blog-title">
-        <a href="<%- config.root %>"><%= config.title %></a>
-    </h1>
+    <div id="logo" class="logo">
+        <svg version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="200" height="260"
+             viewBox="0 0 200 260" overflow="visible" enable-background="new 0 0 200 260" xml:space="preserve">
+            <g id="logoGroup">
+                <polygon class="logo-piece logo-piece-nw" fill="#4F595B" points="80,40 0,80 0,120 80,80"/>
+                <polygon class="logo-piece logo-piece-sw" fill="#8A989F" points="100,130 0,80 0,120 100,169"/>
+                <polygon class="logo-piece logo-piece-se" fill="#4F595B" points="100,110 200,60 200,100 100,149"/>
+                <rect x="80" y="31" fill="#8A989F" width="39" height="228"/>
+                <polygon class="logo-piece logo-piece-ne" fill="#8A989F" points="80,0 199,60 199,100 80,40"/>
+            </g>
+        </svg>
+    </div>
     <div id="search-form-wrap">
         <%- search_form({button: '&#xF002;'}) %>
     </div>
