@@ -34,16 +34,17 @@
 
   .mobile-nav-panel
     display: block
+    float: right;
 
   .nav
     height: 0
     width: 100%
     overflow: hidden
     margin: 0
-    position: absolute
-    top: 45px
+    position: fixed
+    bottom: 0
     left: 0
-    background-color: #4f5759
+    background-color: mobile-nav-bgcolor
     &.active
       height: auto
       overflow: visible
@@ -65,9 +66,6 @@
 
   #search-form-wrap
     display: none
-
-  #nav-search-btn, #nav-rss-link
-    display: none !important
 
   .blog-title
     float: none
