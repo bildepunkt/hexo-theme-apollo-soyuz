@@ -20,11 +20,11 @@ export default class Galaxy {
             drag: 12
         });
         this.attractor2 = new Attractor({
-            magnitude: -0.06,
+            magnitude: -0.02,
             drag: 12
         });
         this.attractor3 = new Attractor({
-            magnitude: -0.02,
+            magnitude: -0.06,
             drag: 12
         });
 
