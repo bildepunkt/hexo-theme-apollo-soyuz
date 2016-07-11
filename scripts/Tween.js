@@ -10,13 +10,23 @@
  */
 export default class Tween {
     constructor(entity, prop, start, end, ms, easing, onComplete) {
-        this.entity = entity;
-        this.prop = prop;
-        this.start = start;
-        this.end = end;
-        this.ms = ms;
-        this.easing = easing;
-        this.onComplete = onComplete;
+        if (typeof entity === "function") {
+            this.callback = entity;
+            this.start = prop;
+            this.end = start;
+            this.ms = end;
+            this.easing = ms;
+            this.onComplete = easing;
+        } else {
+            this.entity = entity;
+            this.prop = prop;
+            this.start = start;
+            this.end = end;
+            this.ms = ms;
+            this.easing = easing;
+            this.onComplete = onComplete;
+        }
+
         this.currentFrame = 0;
         this.totalFrames  = Math.round( this.ms / (1000 / 60) );
 
@@ -30,12 +40,23 @@ export default class Tween {
 
     update() {
         if (this.currentFrame < this.totalFrames) {
-            this.entity[this.prop] = this.easing(
-                this.currentFrame,
-                this.start,
-                this.end,
-                this.totalFrames
-            );
+            if (typeof this.callback === "function") {
+                this.callback(
+                    this.easing(
+                        this.currentFrame,
+                        this.start,
+                        this.end,
+                        this.totalFrames
+                    )
+                );
+            } else {
+                this.entity[this.prop] = this.easing(
+                    this.currentFrame,
+                    this.start,
+                    this.end,
+                    this.totalFrames
+                );
+            }
         } else {
             if (this.onComplete) {
                 this.onComplete();
