@@ -3,7 +3,7 @@ Hexo theme: Apollo-Soyuz
 
 This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
 
-[Demo](/#coming-soon!)
+[Demo](http://c-concat-p.js.org/)
 
 ### Install
 Run this command from inside your hexo project
@@ -31,7 +31,7 @@ rss: /atom.xml
 excerpt_link: Read More
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-########-#
 favicon: /favicon.png
 ```
 
@@ -40,4 +40,3 @@ favicon: /favicon.png
 - **excerpt_link** - "Read More" link at the bottom of excerpted articles. `false` to hide the link.
 - **google_analytics** - Google Analytics ID
 - **favicon** - Favicon path
-- **Disqus** - Disqus path
