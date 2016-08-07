@@ -62,22 +62,81 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	window.onload = function () {
-	    new _Ticker2.default();
+	(function () {
+	    var navHidden = true;
+	    var lastScrollY = void 0;
+	    var vpHeight = void 0;
+	    var topNav = void 0;
+	    var header = void 0;
+	    var staticBg = void 0;
 	
-	    var header = document.getElementById("header");
-	    var staticBg = document.getElementById("static_background");
-	    var vpHeight = window.innerHeight + "px";
+	    function scrollToArticle(delta) {
+	        if (delta < window.innerHeight) {
+	            window.scrollTo(0, delta);
+	        }
+	    }
 	
-	    header.style.height = vpHeight;
-	    staticBg.style.height = vpHeight;
+	    function showTopNav() {
+	        if (!navHidden) {
+	            return;
+	        }
 	
-	    document.body.style.opacity = 0;
-	    document.body.style.display = "block";
-	    new _Tween2.default(document.body.style, "opacity", 0, 1, 1000, _easing.easeOut);
+	        topNav.style.display = "block";
+	        navHidden = false;
+	    }
 	
-	    new _Galaxy2.default();
-	};
+	    function hideTopNav() {
+	        topNav.style.display = "none";
+	        navHidden = true;
+	    }
+	
+	    function onScroll(e) {
+	        var y = window.pageYOffset || document.documentElement.scrollTop;
+	
+	        if (y < lastScrollY) {
+	            showTopNav();
+	        } else {
+	            hideTopNav();
+	        }
+	
+	        if (y < vpHeight / 2) {
+	            hideTopNav();
+	        }
+	
+	        lastScrollY = y;
+	    }
+	
+	    function onLoad() {
+	        new _Ticker2.default();
+	
+	        lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+	        vpHeight = window.innerHeight;
+	        topNav = document.getElementById("top_nav");
+	        header = document.getElementById("header");
+	        staticBg = document.getElementById("static_background");
+	
+	        header.style.height = vpHeight + "px";
+	        staticBg.style.height = vpHeight + "px";
+	
+	        document.addEventListener("scroll", onScroll, false);
+	
+	        document.body.style.opacity = 0;
+	        document.body.style.display = "block";
+	        new _Tween2.default(document.body.style, "opacity", 0, 1, 1000, _easing.easeOut);
+	
+	        new _Galaxy2.default();
+	
+	        if (document.location.pathname !== "/" && lastScrollY === 0) {
+	            new _Tween2.default(scrollToArticle, 0, window.innerHeight - 32, 1000, _easing.easeOut);
+	        }
+	
+	        if (lastScrollY === 0) {
+	            showTopNav();
+	        }
+	    }
+	
+	    window.onload = onLoad;
+	})();
 
 /***/ },
 /* 1 */
@@ -97,7 +156,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Ticker = function () {
 	    function Ticker() {
 	        _classCallCheck(this, Ticker);
@@ -149,18 +207,27 @@
 	 * @param {Integer}  ms     The length of the tween in milliseconds
 	 * @param {Function} easing The easing function
 	 */
-	
 	var Tween = function () {
 	    function Tween(entity, prop, start, end, ms, easing, onComplete) {
 	        _classCallCheck(this, Tween);
 	
-	        this.entity = entity;
-	        this.prop = prop;
-	        this.start = start;
-	        this.end = end;
-	        this.ms = ms;
-	        this.easing = easing;
-	        this.onComplete = onComplete;
+	        if (typeof entity === "function") {
+	            this.callback = entity;
+	            this.start = prop;
+	            this.end = start;
+	            this.ms = end;
+	            this.easing = ms;
+	            this.onComplete = easing;
+	        } else {
+	            this.entity = entity;
+	            this.prop = prop;
+	            this.start = start;
+	            this.end = end;
+	            this.ms = ms;
+	            this.easing = easing;
+	            this.onComplete = onComplete;
+	        }
+	
 	        this.currentFrame = 0;
 	        this.totalFrames = Math.round(this.ms / (1000 / 60));
 	
@@ -177,7 +244,11 @@
 	        key: "update",
 	        value: function update() {
 	            if (this.currentFrame < this.totalFrames) {
-	                this.entity[this.prop] = this.easing(this.currentFrame, this.start, this.end, this.totalFrames);
+	                if (typeof this.callback === "function") {
+	                    this.callback(this.easing(this.currentFrame, this.start, this.end, this.totalFrames));
+	                } else {
+	                    this.entity[this.prop] = this.easing(this.currentFrame, this.start, this.end, this.totalFrames);
+	                }
 	            } else {
 	                if (this.onComplete) {
 	                    this.onComplete();
@@ -263,7 +334,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Galaxy = function () {
 	    function Galaxy() {
 	        var _this = this;
@@ -360,7 +430,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Canvas = function () {
 	    function Canvas(id) {
 	        _classCallCheck(this, Canvas);
@@ -420,7 +489,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Starfield = function () {
 	    function Starfield(options) {
 	        _classCallCheck(this, Starfield);
@@ -528,7 +596,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Star = function () {
 	    function Star(options) {
 	        _classCallCheck(this, Star);
@@ -611,7 +678,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Attractor = function () {
 	    function Attractor(options) {
 	        _classCallCheck(this, Attractor);
