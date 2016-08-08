@@ -113,8 +113,10 @@
 	        lastScrollY = y;
 	    }
 	
-	    function onMobileMenuClick(e) {
-	        if (parseInt(menuOptions.style.height, 10) === 0) {
+	    function onMobileMenuClick() {
+	        var height = parseInt(menuOptions.style.height, 10);
+	
+	        if (height === 0 || height === NaN) {
 	            menuOptions.style.height = "100%";
 	        } else {
 	            menuOptions.style.height = "0px";
