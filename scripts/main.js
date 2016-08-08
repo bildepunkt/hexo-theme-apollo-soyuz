@@ -56,7 +56,9 @@ import Galaxy from "./galaxy/Galaxy";
     }
 
     function onMobileMenuClick () {
-        if (parseInt(menuOptions.style.height, 10) === 0) {
+        let height = parseInt(menuOptions.style.height, 10);
+        
+        if (height === 0 || height === NaN) {
             menuOptions.style.height = "100%";
         } else {
             menuOptions.style.height = "0px";
