@@ -62,37 +62,108 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function scrollToArticle(delta) {
-	    if (delta < window.innerHeight) {
-	        window.scrollTo(0, delta);
+	(function () {
+	    var navHidden = true;
+	    var lastScrollY = void 0;
+	    var vpHeight = void 0;
+	    var topNav = void 0;
+	    var header = void 0;
+	    var staticBg = void 0;
+	    var navHome = void 0;
+	    var mobileMenuBtn = void 0;
+	    var menuOptions = void 0;
+	    var logo = void 0;
+	
+	    function scrollToArticle(delta) {
+	        if (delta < window.innerHeight) {
+	            window.scrollTo(0, delta);
+	        }
 	    }
-	}
 	
-	window.onload = function () {
-	    new _Ticker2.default();
+	    function showTopNav() {
+	        if (!navHidden) {
+	            return;
+	        }
 	
-	    var logo = document.getElementById("logo");
-	    var header = document.getElementById("header");
-	    var staticBg = document.getElementById("static_background");
-	    var vpHeight = window.innerHeight + "px";
+	        topNav.style.display = "block";
+	        navHidden = false;
+	    }
 	
-	    logo.addEventListener("click", function () {
+	    function hideTopNav() {
+	        topNav.style.display = "none";
+	        navHidden = true;
+	    }
+	
+	    function onScroll(e) {
+	        var y = window.pageYOffset || document.documentElement.scrollTop;
+	
+	        menuOptions.style.height = "0px";
+	
+	        if (y < lastScrollY) {
+	            showTopNav();
+	        } else {
+	            hideTopNav();
+	        }
+	
+	        if (y < vpHeight / 2) {
+	            navHome.style.display = "none";
+	        } else {
+	            navHome.style.display = "block";
+	        }
+	
+	        lastScrollY = y;
+	    }
+	
+	    function onMobileMenuClick() {
+	        if (parseInt(menuOptions.style.height, 10) === 0) {
+	            menuOptions.style.height = "100%";
+	        } else {
+	            menuOptions.style.height = "0px";
+	        }
+	    }
+	
+	    function onLogoClick() {
 	        document.location.href = "/";
-	    }, false);
-	
-	    header.style.height = vpHeight;
-	    staticBg.style.height = vpHeight;
-	
-	    document.body.style.opacity = 0;
-	    document.body.style.display = "block";
-	    new _Tween2.default(document.body.style, "opacity", 0, 1, 1000, _easing.easeOut);
-	
-	    new _Galaxy2.default();
-	
-	    if (document.location.pathname !== "/" && window.scrollY === 0) {
-	        new _Tween2.default(scrollToArticle, 0, window.innerHeight - 32, 1000, _easing.easeOut);
 	    }
-	};
+	
+	    function onLoad() {
+	        new _Ticker2.default();
+	
+	        lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+	        vpHeight = window.innerHeight;
+	        topNav = document.getElementById("top_nav");
+	        header = document.getElementById("header");
+	        staticBg = document.getElementById("static_background");
+	        navHome = document.getElementById("nav_home");
+	        mobileMenuBtn = document.getElementById("mobile_menu_btn");
+	        menuOptions = document.getElementById("menu_options");
+	        logo = document.getElementById("logo");
+	
+	        header.style.height = vpHeight + "px";
+	        staticBg.style.height = vpHeight + "px";
+	
+	        document.addEventListener("scroll", onScroll, false);
+	        mobileMenuBtn.addEventListener("click", onMobileMenuClick, false);
+	        logo.addEventListener("click", onLogoClick, false);
+	
+	        document.body.style.opacity = 0;
+	        document.body.style.display = "block";
+	        new _Tween2.default(document.body.style, "opacity", 0, 1, 1000, _easing.easeOut);
+	
+	        new _Galaxy2.default();
+	
+	        if (document.location.pathname !== "/" && lastScrollY === 0) {
+	            new _Tween2.default(scrollToArticle, 0, window.innerHeight - 32, 1000, _easing.easeOut);
+	        }
+	
+	        if (lastScrollY === 0) {
+	            showTopNav();
+	            navHome.style.display = "none";
+	        }
+	    }
+	
+	    window.onload = onLoad;
+	})();
 
 /***/ },
 /* 1 */
@@ -112,7 +183,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Ticker = function () {
 	    function Ticker() {
 	        _classCallCheck(this, Ticker);
@@ -164,7 +234,6 @@
 	 * @param {Integer}  ms     The length of the tween in milliseconds
 	 * @param {Function} easing The easing function
 	 */
-	
 	var Tween = function () {
 	    function Tween(entity, prop, start, end, ms, easing, onComplete) {
 	        _classCallCheck(this, Tween);
@@ -292,7 +361,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Galaxy = function () {
 	    function Galaxy() {
 	        var _this = this;
@@ -389,7 +457,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Canvas = function () {
 	    function Canvas(id) {
 	        _classCallCheck(this, Canvas);
@@ -449,7 +516,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Starfield = function () {
 	    function Starfield(options) {
 	        _classCallCheck(this, Starfield);
@@ -557,7 +623,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Star = function () {
 	    function Star(options) {
 	        _classCallCheck(this, Star);
@@ -640,7 +705,6 @@
 	 * @copyright 2016 Chris Peters
 	 * @license ISC
 	 */
-	
 	var Attractor = function () {
 	    function Attractor(options) {
 	        _classCallCheck(this, Attractor);

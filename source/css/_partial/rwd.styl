@@ -36,12 +36,24 @@
     display: block
     float: right;
 
-  .nav
+  #top_nav
+    #mobile_menu_btn
+      float: right
+      margin: 0.6em
+      cursor: pointer
+      font-family: FontAwesome
+      color: color-default
+      &:hover
+        color: color-link
+      &:before
+        content: "\f0c9"
+
+  #menu_options
     height: 0
     width: 100%
     overflow: hidden
     margin: 0
-    position: fixed
+    position: relative
     bottom: 0
     left: 0
     background-color: mobile-nav-bgcolor

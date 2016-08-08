@@ -1,61 +1,24 @@
-#static_background
-  position: fixed
-  width: 100%
-  height: 100%
-
-.galaxy
-  position: absolute;
-  top: 0;
-  left: 0;
-
-#header
-  display: block
-  margin: 0
-  position: relative
-  *zoom: 1
-  text-align: center;
-  &:after
-    display: block
-    visibility: hidden
-    font-size: 0
-    height: 0
-    clear: both
-    content: "."
-
-.blog-title
-  float: left
-  display: inline-block
-  font-size: 120%
-  font-weight: bold
-  padding-bottom: .2em
-  letter-spacing: .2em
-  margin: 10px 0
-  border-bottom: 5px solid color-title
-  position: absolute;
-  top: 46%;
-  margin-left: -92px;
-  &:hover
-    border-color: color-link
-    a
-      color: color-link
-  a
-    position: relative
-    left: .1em
-    padding: .4em 0
-
-.mobile-nav-panel
+#top_nav
   display: none
-  padding: 15px 0 0
-  .icon-reorder
-    cursor: pointer
-    display: inline-block
-    width: 18px
-    height: 18px
-    color: color-link
-    background-size: 18px 16px
+  position: fixed
+  top: 0
+  left: 0
+  background: trans-black;
+  box-shadow: 0 0 8px 1px trans-black;
+  width: 100%;
+  z-index: 1;
+  > ul li 
+    float: left
+    a
+      margin: 0.6em;
+      text-transform: uppercase;
+      font-size: 85%;
+      font-weight: bold;
+      color: color-default
+      &:hover
+        color: color-link
 
-.nav
-  margin: 10px 0
+#menu_options
   font-size: 85%
   text-transform: uppercase
   float: right
@@ -74,7 +37,7 @@
       content: "."
   li
     float: left
-    margin: .3em 0 .3em 2em
+    margin: 0.6em
     img
       vertical-align: middle
 
@@ -153,3 +116,60 @@
   cursor: pointer
   &:hover, &:focus
     color: #777
+
+
+#static_background
+  position: fixed
+  width: 100%
+  height: 100%
+
+.galaxy
+  position: absolute;
+  top: 0;
+  left: 0;
+
+#header
+  display: block
+  margin: 0
+  position: relative
+  *zoom: 1
+  text-align: center;
+  &:after
+    display: block
+    visibility: hidden
+    font-size: 0
+    height: 0
+    clear: both
+    content: "."
+
+.blog-title
+  float: left
+  display: inline-block
+  font-size: 120%
+  font-weight: bold
+  padding-bottom: .2em
+  letter-spacing: .2em
+  margin: 10px 0
+  border-bottom: 5px solid color-title
+  position: absolute;
+  top: 46%;
+  margin-left: -92px;
+  &:hover
+    border-color: color-link
+    a
+      color: color-link
+  a
+    position: relative
+    left: .1em
+    padding: .4em 0
+
+.mobile-nav-panel
+  display: none
+  padding: 15px 0 0
+  .icon-reorder
+    cursor: pointer
+    display: inline-block
+    width: 18px
+    height: 18px
+    color: color-link
+    background-size: 18px 16px
