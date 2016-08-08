@@ -10,6 +10,7 @@ import Galaxy from "./galaxy/Galaxy";
     let topNav;
     let header;
     let staticBg;
+    let navHome;
 
     function scrollToArticle (delta) {
         if (delta < window.innerHeight) {
@@ -41,7 +42,9 @@ import Galaxy from "./galaxy/Galaxy";
         }
 
         if (y < vpHeight / 2) {
-            hideTopNav();
+            navHome.style.display = "none";
+        } else {
+            navHome.style.display = "block"
         }
 
         lastScrollY = y;
@@ -55,6 +58,7 @@ import Galaxy from "./galaxy/Galaxy";
         topNav = document.getElementById("top_nav");
         header = document.getElementById("header");
         staticBg = document.getElementById("static_background");
+        navHome = document.getElementById("nav_home");
 
         header.style.height = `${vpHeight}px`;
         staticBg.style.height = `${vpHeight}px`;
@@ -73,6 +77,7 @@ import Galaxy from "./galaxy/Galaxy";
 
         if (lastScrollY === 0) {
             showTopNav();
+            navHome.style.display = "none";
         }
     }
 

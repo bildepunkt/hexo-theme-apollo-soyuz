@@ -69,6 +69,7 @@
 	    var topNav = void 0;
 	    var header = void 0;
 	    var staticBg = void 0;
+	    var navHome = void 0;
 	
 	    function scrollToArticle(delta) {
 	        if (delta < window.innerHeight) {
@@ -100,7 +101,9 @@
 	        }
 	
 	        if (y < vpHeight / 2) {
-	            hideTopNav();
+	            navHome.style.display = "none";
+	        } else {
+	            navHome.style.display = "block";
 	        }
 	
 	        lastScrollY = y;
@@ -114,6 +117,7 @@
 	        topNav = document.getElementById("top_nav");
 	        header = document.getElementById("header");
 	        staticBg = document.getElementById("static_background");
+	        navHome = document.getElementById("nav_home");
 	
 	        header.style.height = vpHeight + "px";
 	        staticBg.style.height = vpHeight + "px";
@@ -132,6 +136,7 @@
 	
 	        if (lastScrollY === 0) {
 	            showTopNav();
+	            navHome.style.display = "none";
 	        }
 	    }
 	
