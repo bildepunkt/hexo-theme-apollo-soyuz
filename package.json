@@ -1,10 +1,9 @@
 {
   "name": "hexo-theme-apollo-soyuz",
   "version": "0.1.0",
-  "description": "The protfolio and blog site of Chris Peters",
+  "description": "A Hexo theme based on the Hexo theme: Apollo",
   "repository": "https://github.com/c-concat-p/hexo-theme-apollo-soyuz.git",
   "scripts": {
-    "watch:styles": "./node_modules/.bin/node-sass -w ./styles -o ./source/styles",
     "watch:scripts": "./node_modules/.bin/webpack --watch --config webpack.config.js"
   },
   "author": "Chris Peters",
@@ -14,7 +13,6 @@
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
-    "node-sass": "^3.8.0",
     "webpack": "^1.13.1"
   }
 }

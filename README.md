@@ -3,7 +3,7 @@ Hexo theme: Apollo-Soyuz
 
 This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
 
-[Demo](/#coming-soon!)
+[Demo](http://bildepunkt.com)
 
 ### Install
 Run this command from inside your hexo project

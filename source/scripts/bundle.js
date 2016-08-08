@@ -70,6 +70,8 @@
 	    var header = void 0;
 	    var staticBg = void 0;
 	    var navHome = void 0;
+	    var mobileMenuBtn = void 0;
+	    var menuOptions = void 0;
 	
 	    function scrollToArticle(delta) {
 	        if (delta < window.innerHeight) {
@@ -94,6 +96,8 @@
 	    function onScroll(e) {
 	        var y = window.pageYOffset || document.documentElement.scrollTop;
 	
+	        menuOptions.style.height = "0px";
+	
 	        if (y < lastScrollY) {
 	            showTopNav();
 	        } else {
@@ -109,6 +113,14 @@
 	        lastScrollY = y;
 	    }
 	
+	    function onMobileMenuClick(e) {
+	        if (parseInt(menuOptions.style.height, 10) === 0) {
+	            menuOptions.style.height = "100%";
+	        } else {
+	            menuOptions.style.height = "0px";
+	        }
+	    }
+	
 	    function onLoad() {
 	        new _Ticker2.default();
 	
@@ -118,11 +130,14 @@
 	        header = document.getElementById("header");
 	        staticBg = document.getElementById("static_background");
 	        navHome = document.getElementById("nav_home");
+	        mobileMenuBtn = document.getElementById("mobile_menu_btn");
+	        menuOptions = document.getElementById("menu_options");
 	
 	        header.style.height = vpHeight + "px";
 	        staticBg.style.height = vpHeight + "px";
 	
 	        document.addEventListener("scroll", onScroll, false);
+	        mobileMenuBtn.addEventListener("click", onMobileMenuClick, false);
 	
 	        document.body.style.opacity = 0;
 	        document.body.style.display = "block";

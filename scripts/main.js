@@ -11,6 +11,8 @@ import Galaxy from "./galaxy/Galaxy";
     let header;
     let staticBg;
     let navHome;
+    let mobileMenuBtn;
+    let menuOptions;
 
     function scrollToArticle (delta) {
         if (delta < window.innerHeight) {
@@ -35,6 +37,8 @@ import Galaxy from "./galaxy/Galaxy";
     function onScroll (e) {
         let y = window.pageYOffset || document.documentElement.scrollTop;
 
+        menuOptions.style.height = "0px";
+
         if (y < lastScrollY){
             showTopNav();
         } else {
@@ -50,6 +54,14 @@ import Galaxy from "./galaxy/Galaxy";
         lastScrollY = y;
     }
 
+    function onMobileMenuClick (e) {
+        if (parseInt(menuOptions.style.height, 10) === 0) {
+            menuOptions.style.height = "100%";
+        } else {
+            menuOptions.style.height = "0px";
+        }
+    }
+
     function onLoad () {
         new Ticker();
 
@@ -59,11 +71,14 @@ import Galaxy from "./galaxy/Galaxy";
         header = document.getElementById("header");
         staticBg = document.getElementById("static_background");
         navHome = document.getElementById("nav_home");
+        mobileMenuBtn = document.getElementById("mobile_menu_btn");
+        menuOptions = document.getElementById("menu_options");
 
         header.style.height = `${vpHeight}px`;
         staticBg.style.height = `${vpHeight}px`;
 
         document.addEventListener("scroll", onScroll, false);
+        mobileMenuBtn.addEventListener("click", onMobileMenuClick, false);
 
         document.body.style.opacity = 0; 
         document.body.style.display = "block";
